@@ -1,0 +1,2448 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "main": "https://www.hyiki.website:8099",
+        "main2": "https://127.0.0.1:8099",
+        "pages": [
+            {
+                "label": "实用工具",
+                "url": "/",
+                "schema": {
+                    "type": "page",
+                    "title": "navigator",
+                    "body": [
+                        {
+                            "type": "nav",
+                            "stacked": true,
+                            "links": [
+                                {
+                                    "label": "字符串工具",
+                                    "to": "/string"
+                                },
+                                {
+                                    "label": "加密工具",
+                                    "to": "/crypto"
+                                },
+                                {
+                                    "label": "文件工具",
+                                    "to": "/file"
+                                },
+                                {
+                                    "label": "智能工具",
+                                    "to": "/intelligent"
+                                },
+                                {
+                                    "label": "开放工具",
+                                    "to": "/open"
+                                },
+                                {
+                                    "label": "时间工具",
+                                    "to": "/time"
+                                },
+                                {
+                                    "label": "系统监控",
+                                    "to": "/monitor"
+                                },
+                                {
+                                    "label": "Excel工具",
+                                    "to": "/excel"
+                                },
+                                {
+                                    "label": "NAS工具",
+                                    "to": "/nas"
+                                },
+                                {
+                                    "label": "查询工具",
+                                    "to": "/es"
+                                },
+                                {
+                                    "label": "娱乐工具",
+                                    "to": "/entertainment"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "工具",
+                "children": [
+                    {
+                        "label": "字符串工具",
+                        "url": "/string",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "转义字符串",
+                                            "to": "/string/escape"
+                                        },
+                                        {
+                                            "label": "反转义字符串",
+                                            "to": "/string/unescape"
+                                        },
+                                        {
+                                            "label": "美化Json",
+                                            "to": "/string/json/pretty"
+                                        },
+                                        {
+                                            "label": "简化Json",
+                                            "to": "/string/json/simplify"
+                                        },
+                                        {
+                                            "label": "美化Xml",
+                                            "to": "/string/xml/pretty"
+                                        },
+                                        {
+                                            "label": "简化Xml",
+                                            "to": "/string/xml/simplify"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "转义字符串",
+                                "url": "/string/escape",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/escape?input=${input}",
+                                    "title": "escape-string",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "escaped string",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "反转义字符串",
+                                "url": "/string/unescape",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/unescape?input=${input}",
+                                    "title": "escape-string",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "unescaped string",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "美化Json",
+                                "url": "/string/json/pretty",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/json/pretty?input=${input}",
+                                    "title": "pretty-json",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "pretty json",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "简化Json",
+                                "url": "/string/json/simplify",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/json/simplify?input=${input}",
+                                    "title": "simplify-json",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "simplify json",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "美化Xml",
+                                "url": "/string/xml/pretty",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/xml/pretty?input=${input}",
+                                    "title": "pretty-xml",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "pretty xml",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "简化Xml",
+                                "url": "/string/xml/simplify",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/string/xml/simplify?input=${input}",
+                                    "title": "simplify-xml",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "string",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "simplify xml",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "加密工具",
+                        "url": "/crypto",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "TOTP",
+                                            "to": "/crypto/totp"
+                                        },
+                                        {
+                                            "label": "MD5",
+                                            "to": "/crypto/md5"
+                                        },
+                                        {
+                                            "label": "进制转换",
+                                            "to": "/crypto/convert"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "TOTP",
+                                "url": "/crypto/totp",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/crypto/totp?input=${input}",
+                                    "title": "totp-crypto",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "select",
+                                                    "label": "secret",
+                                                    "name": "input",
+                                                    "selectFirst": true,
+                                                    "options": [
+                                                        "aliyun_mfa"
+                                                    ],
+                                                    "checkAll": false
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "code",
+                                                    "name": "output",
+                                                    "minRows": 3,
+                                                    "maxRows": 20,
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "submitOnInit": true
+                                }
+                            },
+                            {
+                                "label": "MD5",
+                                "url": "/crypto/md5",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/crypto/md5?input=${input}",
+                                    "title": "md5-crypto",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "string",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "upper32",
+                                                    "name": "upper32",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${upper32}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "upper16",
+                                                    "name": "upper16",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${upper16}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "lower32",
+                                                    "name": "lower32",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${lower32}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "lower16",
+                                                    "name": "lower16",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${lower16}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "进制转换",
+                                "url": "/crypto/convert",
+                                "schema": {
+                                    "type": "form",
+                                    "api": "get:${main}/crypto/convert?num=${num}",
+                                    "title": "convert-crypto",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "num",
+                                                    "name": "num"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "binary",
+                                                    "name": "binaryNum",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${binaryNum}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "octal",
+                                                    "name": "octalNum",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${octalNum}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "decimal",
+                                                    "name": "decimalNum",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${decimalNum}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "hex",
+                                                    "name": "hexNum",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${hexNum}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "文件工具",
+                        "url": "/file",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "Base64编码文件",
+                                            "to": "/file/encode"
+                                        },
+                                        {
+                                            "label": "Base64解码文件",
+                                            "to": "/file/decode"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "Base64编码文件",
+                                "url": "/file/encode",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/file/encode"
+                                    },
+                                    "title": "encode-file",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-file",
+                                                    "label": "file",
+                                                    "name": "file",
+                                                    "drag": true,
+                                                    "asBlob": true
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "code",
+                                                    "name": "output",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "Base64解码文件",
+                                "url": "/file/decode",
+                                "schema": {
+                                    "type": "form",
+                                    "title": "decode-file",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "label": "code",
+                                                    "type": "textarea",
+                                                    "name": "input",
+                                                    "minRows": 3,
+                                                    "maxRows": 20
+                                                },
+                                                {
+                                                    "label": "下载",
+                                                    "type": "action",
+                                                    "actionType": "download",
+                                                    "api": "${main}/file/decode?input=${input}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "智能工具",
+                        "url": "/intelligent",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "地址解析",
+                                            "to": "/intelligent/address/parse"
+                                        },
+                                        {
+                                            "label": "ocr文字识别",
+                                            "to": "/intelligent/ocr"
+                                        },
+                                        {
+                                            "label": "图片查找",
+                                            "to": "/intelligent/crawler/image"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "地址解析",
+                                "url": "/intelligent/address/parse",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/intelligent/address/parse"
+                                    },
+                                    "title": "address-parse",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "address",
+                                                    "name": "address"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "name",
+                                                    "name": "name",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "province",
+                                                    "name": "province",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "provinceCode",
+                                                    "name": "provinceCode",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "city",
+                                                    "name": "city",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "cityCode",
+                                                    "name": "cityCode",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "area",
+                                                    "name": "area",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "areaCode",
+                                                    "name": "areaCode",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "addr",
+                                                    "name": "addr",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "phone",
+                                                    "name": "phone",
+                                                    "readOnly": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "ocr文字识别",
+                                "url": "/intelligent/ocr",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/intelligent/ocr"
+                                    },
+                                    "title": "ocr",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-file",
+                                                    "label": "file",
+                                                    "name": "file",
+                                                    "drag": true,
+                                                    "asBlob": true
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "text",
+                                                    "name": "output",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "图片查找",
+                                "url": "/intelligent/crawler/image",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/intelligent/crawler/image"
+                                    },
+                                    "title": "imageCrawler",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "url",
+                                                    "name": "url"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "属性",
+                                                    "name": "feature",
+                                                    "value": "img"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "元素",
+                                                    "name": "attr",
+                                                    "value": "abs:src"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "标题",
+                                                    "name": "title",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "images",
+                                                    "label": "结果",
+                                                    "name": "result",
+                                                    "readOnly": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "开放工具",
+                        "url": "/open",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "通用翻译 - 百度",
+                                            "to": "/open/baidu/translate"
+                                        },
+                                        {
+                                            "label": "Text to Speech",
+                                            "to": "/open/speech/synthesis"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "通用翻译 - 百度",
+                                "url": "/open/baidu/translate",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/open/baidu/translate"
+                                    },
+                                    "title": "translate-baidu",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "text",
+                                                    "name": "text"
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "to",
+                                                    "name": "to",
+                                                    "selectFirst": true,
+                                                    "options": [
+                                                        "zh",
+                                                        "en"
+                                                    ],
+                                                    "checkAll": false
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "dst",
+                                                    "name": "dst",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${dst}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "srcTts",
+                                                    "name": "srcTts",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "dstTts",
+                                                    "name": "dstTts",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "dict",
+                                                    "name": "dict",
+                                                    "readOnly": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "Text to Speech",
+                                "url": "/open/speech/synthesis",
+                                "schema": {
+                                    "type": "form",
+                                    "title": "speech-synthesis",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "text",
+                                                    "name": "text"
+                                                },
+                                                {
+                                                    "type": "button",
+                                                    "label": "播放",
+                                                    "onEvent": {
+                                                      "click": {
+                                                        "actions": [
+                                                          {
+                                                            "args": {
+                                                              "url": "https://www.hyiki.website/open/speech/synthesis?text=${text}"
+                                                            },
+                                                            "actionType": "url"
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "id": "u:e89d37b3a4da"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "时间工具",
+                        "url": "/time",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "时间转换工具",
+                                            "to": "/time/parse"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "时间转换工具",
+                                "url": "/time/parse",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/time/parse"
+                                    },
+                                    "title": "time-parse",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "radios",
+                                                    "label": "type",
+                                                    "name": "timeParseType",
+                                                    "options": [
+                                                        {
+                                                            "label": "当前",
+                                                            "value": "NOW"
+                                                        },
+                                                        {
+                                                            "label": "日期",
+                                                            "value": "DATETIME"
+                                                        },
+                                                        {
+                                                            "label": "时间戳",
+                                                            "value": "TIMESTAMP"
+                                                        },
+                                                        {
+                                                            "label": "时间",
+                                                            "value": "TIME"
+                                                        }
+                                                    ],
+                                                    "value": "NOW"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "日期",
+                                                    "name": "dateTime",
+                                                    "visibleOn": "${timeParseType == 'DATETIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "时间戳",
+                                                    "name": "timestamp",
+                                                    "visibleOn": "${timeParseType == 'TIMESTAMP'}"
+                                                },
+                                                {
+                                                    "type": "select",
+                                                    "label": "时间类型",
+                                                    "name": "timeUnit",
+                                                    "options": [
+                                                        {
+                                                            "label": "天",
+                                                            "value": "DAYS"
+                                                        },
+                                                        {
+                                                            "label": "时",
+                                                            "value": "HOURS"
+                                                        },
+                                                        {
+                                                            "label": "分",
+                                                            "value": "MINUTES"
+                                                        },
+                                                        {
+                                                            "label": "秒",
+                                                            "value": "SECONDS"
+                                                        },
+                                                        {
+                                                            "label": "毫秒",
+                                                            "value": "MILLISECONDS"
+                                                        }
+                                                    ],
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "时间",
+                                                    "name": "time",
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "日期",
+                                                    "name": "dateTime",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType != 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "时间戳",
+                                                    "name": "timestamp",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType != 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "天",
+                                                    "name": "day",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "时",
+                                                    "name": "hour",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "分",
+                                                    "name": "minute",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "秒",
+                                                    "name": "second",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "毫秒",
+                                                    "name": "millisecond",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${timeParseType == 'TIME'}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "系统监控",
+                        "url": "/monitor",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "数据库监控 - MySQL",
+                                            "to": "/monitor/mysql"
+                                        },
+                                        {
+                                            "label": "自定义视图",
+                                            "to": "/monitor/custom/chart"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "数据库监控 - MySQL",
+                                "url": "/monitor/mysql",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "get",
+                                        "url": "${main}/monitor/mysql"
+                                    },
+                                    "title": "monitor-mysql",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "radios",
+                                            "name": "radio",
+                                            "label": false,
+                                            "selectFirst": true,
+                                            "options": [
+                                                {
+                                                    "label": "实时监控",
+                                                    "value": 2
+                                                },
+                                                {
+                                                    "label": "基础信息",
+                                                    "value": 1
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "版本号",
+                                                    "name": "version",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "当前连接数",
+                                                    "name": "threadsConnected",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "激活连接数",
+                                                    "name": "threadsRunning",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "最大连接数",
+                                                    "name": "maxConnections",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "事务隔离等级",
+                                                    "name": "transactionIsolation",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "数据库编码方式",
+                                                    "name": "characterSetDatabase",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "数据库时区",
+                                                    "name": "systemTimeZone",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "最大文件大小",
+                                                    "name": "maxAllowedPacket",
+                                                    "readOnly": true,
+                                                    "visibleOn": "${radio == 1}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "className": "m-t-lg",
+                                            "columns": [
+                                                {
+                                                    "type": "chart",
+                                                    "name": "健康监测",
+                                                    "initFetch": true,
+                                                    "api": "${main}/monitor/mysql/chart/health"
+                                                },
+                                                {
+                                                    "type": "chart",
+                                                    "name": "连接池活跃数",
+                                                    "initFetch": true,
+                                                    "api": "${main}/monitor/mysql/chart/active"
+                                                }
+                                            ],
+                                            "visibleOn": "${radio == 2}"
+                                        }
+                                    ],
+                                    "submitOnInit": true
+                                }
+                            },
+                            {
+                                "label": "自定义视图",
+                                "url": "/monitor/custom/chart",
+                                "schema": {
+                                    "type": "form",
+                                    "title": "custom-chart",
+                                    "target": "chart1",
+                                    "actions": [],
+                                    "submitOnInit": false,
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "标题",
+                                                    "name": "title"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "坐标描述",
+                                                    "name": "subText"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "X轴数据(逗号隔开)",
+                                                    "name": "xAxisData"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "Y轴数据(逗号隔开)",
+                                                    "name": "yAxisData"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "单位",
+                                                    "name": "unit"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "值名称",
+                                                    "name": "valueName"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "grid",
+                                                    "className": "m-t-lg",
+                                                    "columns": [
+                                                        {
+                                                            "type": "chart",
+                                                            "name": "chart1",
+                                                            "initFetch": false,
+                                                            "api": "${main}/monitor/custom/chart?title=$title&subText=$subText&xAxisData=$xAxisData&yAxisData=$yAxisData&unit=$unit&valueName=$valueName"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Excel工具",
+                        "url": "/excel",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "去重聚合",
+                                            "to": "/excel/duplicate/agg"
+                                        },
+                                        {
+                                            "label": "Excel转Pdf",
+                                            "to": "/excel/convert/pdf/stream"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "去重聚合",
+                                "url": "/excel/duplicate/agg",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/excel/duplicate/agg"
+                                    },
+                                    "title": "duplicate-agg",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "数据文本",
+                                                    "name": "input"
+                                                },
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "分隔符",
+                                                    "name": "regex",
+                                                    "value": "\\n"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "table",
+                                                    "title": "结果表格",
+                                                    "source": "$data",
+                                                    "columns": [
+                                                        {
+                                                            "name": "name",
+                                                            "label": "名称"
+                                                        },
+                                                        {
+                                                            "name": "count",
+                                                            "label": "数量"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "Excel转Pdf",
+                                "url": "/excel/convert/pdf/stream",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/excel/convert/pdf/stream"
+                                    },
+                                    "title": "ExcelToPdf",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-file",
+                                                    "label": "file",
+                                                    "name": "file",
+                                                    "drag": true,
+                                                    "asBlob": true
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "文件",
+                                                    "name": "output",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button",
+                                                    "label": "下载",
+                                                    "onEvent": {
+                                                        "click": {
+                                                            "actions": [
+                                                                {
+                                                                    "args": {
+                                                                        "api": {
+                                                                            "url": "${main}/excel/convert/pdf?fileName=${output}",
+                                                                            "method": "get",
+                                                                            "messages": {},
+                                                                            "responseType": "blob"
+                                                                        }
+                                                                    },
+                                                                    "actionType": "download"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "NAS工具",
+                        "url": "/nas",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "远程下载",
+                                            "to": "http://www.hyiki.website:17080/",
+                                            "target": "_blank",
+                                            "blank": true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "label": "查询工具",
+                        "url": "/es",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "录入文档",
+                                            "to": "/es/doc"
+                                        },
+                                        {
+                                            "label": "搜索文档",
+                                            "to": "/es/match"
+                                        },
+                                        {
+                                            "label": "精确搜索",
+                                            "to": "/es/doc/id"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "录入文档",
+                                "url": "/es/doc",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/es/doc"
+                                    },
+                                    "title": "post-doc",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "数据文本",
+                                                    "name": "content"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "唯一标识",
+                                                    "name": "output",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "button-toolbar",
+                                                    "buttons": [
+                                                        {
+                                                            "type": "button",
+                                                            "label": "复制",
+                                                            "onEvent": {
+                                                                "click": {
+                                                                    "actions": [
+                                                                        {
+                                                                            "args": {
+                                                                                "copyFormat": "text/plain",
+                                                                                "content": "${output}"
+                                                                            },
+                                                                            "actionType": "copy"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "搜索文档",
+                                "url": "/es/match",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "get",
+                                        "url": "${main}/es/match?input=${input}"
+                                    },
+                                    "title": "search-doc",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "搜索文本",
+                                                    "name": "input"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": {
+                                                "type": "crud",
+                                                "expandConfig": {
+                                                    "expand": "first"
+                                                },
+                                                "columns": [
+                                                    {
+                                                        "name": "id",
+                                                        "label": "ID",
+                                                        "type": "text",
+                                                        "toggled": true
+                                                    },
+                                                    {
+                                                        "name": "score",
+                                                        "label": "相关度",
+                                                        "type": "text",
+                                                        "toggled": true
+                                                    },
+                                                    {
+                                                        "name": "highlight",
+                                                        "label": "相关内容",
+                                                        "type": "tpl",
+                                                        "toggled": true
+                                                    },
+                                                    {
+                                                        "type": "operation",
+                                                        "label": "操作",
+                                                        "width": 100,
+                                                        "buttons": [
+                                                            {
+                                                                "type": "button",
+                                                                "icon": "fa fa-eye",
+                                                                "actionType": "dialog",
+                                                                "dialog": {
+                                                                    "title": "查看",
+                                                                    "body": {
+                                                                        "type": "form",
+                                                                        "body": [
+                                                                            {
+                                                                                "type": "static",
+                                                                                "name": "content",
+                                                                                "label": "原文"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "button",
+                                                                "icon": "fa fa-search",
+                                                                "actionType": "url",
+                                                                "url": "/#/es/doc/id?id=${id}",
+                                                                "blank": true
+                                                            }
+                                                        ],
+                                                        "toggled": true
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "精确搜索",
+                                "url": "/es/doc/id",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "get",
+                                        "url": "${main}/es/doc/id?id=${id}"
+                                    },
+                                    "title": "search-id",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "ID",
+                                                    "name": "id"
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": {
+                                                "type": "textarea",
+                                                "label": "原文",
+                                                "name": "content",
+                                                "readOnly": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "label": "娱乐工具",
+                        "url": "/entertainment",
+                        "schema": {
+                            "type": "page",
+                            "body": [
+                                {
+                                    "type": "nav",
+                                    "stacked": true,
+                                    "links": [
+                                        {
+                                            "label": "开始随机",
+                                            "to": "/entertainment/dice"
+                                        },
+                                        {
+                                            "label": "开始快乐",
+                                            "to": "/entertainment/baccarat"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "children": [
+                            {
+                                "label": "开始随机",
+                                "url": "/entertainment/dice",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/entertainment/dice"
+                                    },
+                                    "title": "entertainment-dice",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "flex",
+                                                    "direction": "column",
+                                                    "items": [
+                                                        {
+                                                            "type": "input-number",
+                                                            "label": "最小值",
+                                                            "name": "min",
+                                                            "displayMode": "enhance",
+                                                            "value": 1
+                                                        },
+                                                        {
+                                                            "type": "input-number",
+                                                            "label": "最大值",
+                                                            "name": "max",
+                                                            "displayMode": "enhance",
+                                                            "value": 6
+                                                        },
+                                                        {
+                                                            "type": "input-number",
+                                                            "label": "次数",
+                                                            "name": "count",
+                                                            "displayMode": "enhance",
+                                                            "value": 1
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "table",
+                                                    "title": "结果表格",
+                                                    "source": "$data",
+                                                    "columns": [
+                                                        {
+                                                            "name": "result",
+                                                            "label": "结果"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "textarea",
+                                                    "label": "日志",
+                                                    "name": "log",
+                                                    "readOnly": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label": "开始快乐",
+                                "url": "/entertainment/baccarat",
+                                "schema": {
+                                    "type": "form",
+                                    "api": {
+                                        "method": "post",
+                                        "url": "${main}/entertainment/baccarat"
+                                    },
+                                    "title": "entertainment-baccarat",
+                                    "actions": [],
+                                    "body": [
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输入信息",
+                                            "body": [
+                                                {
+                                                    "type": "submit",
+                                                    "label": "提交",
+                                                    "level": "primary"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "fieldSet",
+                                            "title": "输出信息",
+                                            "body": [
+                                                {
+                                                    "type": "input-text",
+                                                    "label": "对局唯一标识",
+                                                    "name": "uuid",
+                                                    "readOnly": true
+                                                },
+                                                {
+                                                    "type": "table",
+                                                    "title": "结果表格",
+                                                    "source": "$data",
+                                                    "columns": [
+                                                        {
+                                                            "name": "name",
+                                                            "label": "玩家名称"
+                                                        },
+                                                        {
+                                                            "name": "handCard",
+                                                            "label": "手牌"
+                                                        },
+                                                        {
+                                                            "name": "result",
+                                                            "label": "结果"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "editor",
+                                                    "label": "日志",
+                                                    "name": "log",
+                                                    "disabled": true,
+                                                    "size": "xl"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
